@@ -8,8 +8,8 @@ ReportParameters.validate_parameters(settings)
 report_parameters = ReportParameters(settings['startDate'], settings['endDate'], settings['score_weights'])
 
 # # Data extractors
-students = CsvStudentsCollector().collect([2022])
-pprint(students)
+students, year = CsvStudentsCollector().collect([2022])
+pprint((students))
 # reserchers = get_researchers()
 # published_works = get_published_works(reserchers)
 # paper_qualis_dict = get_qualis(published_works)
