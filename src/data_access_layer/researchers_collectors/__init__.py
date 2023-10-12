@@ -1,0 +1,1 @@
+from .interface_researchers_collector import IReserchersCollector

@@ -1,0 +1,2 @@
+from .interface_qualis_collector import IQualisCollector
+from .csv_qualis_collector import CsvQualisCollector

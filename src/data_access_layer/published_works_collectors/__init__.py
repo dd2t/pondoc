@@ -1,0 +1,1 @@
+from .interface_published_works_collector import IPublishedWorksCollector
