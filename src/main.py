@@ -1,4 +1,5 @@
 from pprint import pprint
+from data_access_layer.scientific_serial_publisher_collectors import CsvScientificSerialPublisherCollector
 from data_access_layer.students_collectors import CsvStudentsCollector
 from report_parameters import ReportParameters
 
@@ -9,7 +10,11 @@ report_parameters = ReportParameters(settings['startDate'], settings['endDate'],
 
 # # Data extractors
 students, year = CsvStudentsCollector().collect([2022])
-pprint((students))
+# pprint((students))
+
+scientific_serial_publishers, year_qualis_ssp_dict = CsvScientificSerialPublisherCollector().collect([2022])
+pprint((scientific_serial_publishers, {k: len(v) for k,v in year_qualis_ssp_dict[2022].items()}))
+
 # reserchers = get_researchers()
 # published_works = get_published_works(reserchers)
 # paper_qualis_dict = get_qualis(published_works)
