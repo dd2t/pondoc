@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import List
 
-from entities.enums import QualisEnum
-from entities.types import Issn
+from .enums import QualisEnum
+from .types import Issn
 
 
 @dataclass

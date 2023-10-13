@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List
 from uuid import UUID
 
-from entities.types import Issn
+from .types import Issn
 
 
 @dataclass

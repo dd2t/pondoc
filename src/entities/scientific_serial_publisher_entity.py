@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from entities.types import Issn
+from .types import Issn
 
 
 @dataclass
