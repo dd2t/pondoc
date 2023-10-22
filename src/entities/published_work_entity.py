@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 from uuid import UUID
 
 from .types import Issn
@@ -11,6 +11,6 @@ class PublishedWorkEntity:
 
     id: UUID
     title: str
-    authors: List[str]
     year: int
-    publisher_issn: Issn
+    publisher_issn: Optional[Issn]
+    authors: List[str]
