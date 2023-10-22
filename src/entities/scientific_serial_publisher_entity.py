@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from .enums import QualisEnum
 from .types import Issn
 
 
@@ -9,3 +10,4 @@ class ScientificSerialPublisherEntity:
 
     issn: Issn
     name: str
+    qualis: QualisEnum
