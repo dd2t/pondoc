@@ -13,9 +13,10 @@ class OgPondocPublishedWorksCollector(IPublishedWorksCollector):
     """Uses the original pondoc source to get published works from
     https://eic.cefet-rj.br/lattes/ppcic-{ano}/..."""
 
-    def collect(self, years: List[int]) -> Dict[uuid.UUID, PublishedWorkEntity]:
-        result = {}
+    def collect(self, years: List[int]) -> Dict[int, List[PublishedWorkEntity]]:
         years.sort()
+        result = {year: [] for year in years}
+        
         infosp, _, infosc = read_publications(years[0], years[-1])
 
         for year in years:
@@ -28,7 +29,7 @@ class OgPondocPublishedWorksCollector(IPublishedWorksCollector):
                 paper = self._create_published_work_from_tuple(
                     publication_title, authors, year, other_publication_details
                 )
-                result[paper.id] = paper
+                result[year].append(paper)
 
             for citation in infosc[year]:
                 (
@@ -39,7 +40,7 @@ class OgPondocPublishedWorksCollector(IPublishedWorksCollector):
                 paper = self._create_published_work_from_tuple(
                     publication_title, authors, year, other_publication_details
                 )
-                result[paper.id] = paper
+                result[year].append(paper)
 
         return result
 
